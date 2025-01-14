@@ -10,25 +10,17 @@
 
 / {
     macros {
+
+          #define OS_LEAD  &kp RALT // OS specific sequence to initialize unicode
+          #define OS_TRAIL &kp ESC  // OS specific sequence to terminate unicode
+
         macro_eacute: macro_eacute {
+            wait-ms = <5>;
+            tap-ms = <5>;
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp RALT &kp N0 &kp N0 &kp E &kp N9>,
-                <&macro_release>,
-                <&kp RALT>;
-
+            bindings = <OS_LEAD &kp RALT &kp N0 &kp N0 &kp E &kp N9 OS_TRAIL>;
             label = "MACRO_EACUTE";
-        };
-    };
-
-    behaviors {
-        bootloader_shortcut: bootloader_shortcut {
-            compatible = "zmk,behavior-tap-dance";
-            label = "BOOTLOADER_SHORTCUT";
-            #binding-cells = <0>;
-            bindings = <&kp B>, <&kp B>, <&kp B>, <&kp B>, <&kp TAB>;
         };
     };
 
@@ -48,9 +40,9 @@
         symbols_layer {
             display-name = "symbols";
             bindings = <
-&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8  &kp N9     &kp N0    &kp BSPC
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans    &kp LSHFT
-&trans      &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans  &trans     &kp LGUI  &trans
+&kp TAB     &kp N1        &kp N2        &kp N3        &kp N4        &kp N5          &kp N6    &kp N7    &kp N8  &kp N9      &kp N0      &kp BSPC
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT   &trans      &kp LSHFT
+&trans      &trans        &trans        &trans        &trans        &trans          &trans    &trans    &trans  &trans      &kp LGUI    &trans
                                         &kp SPACE     &kp RET       &trans          &kp RALT
             >;
         };
@@ -76,3 +68,4 @@
         };
     };
 };
+ééééééééééé
