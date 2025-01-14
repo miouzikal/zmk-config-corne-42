@@ -11,15 +11,14 @@
 / {
     macros {
 
-          #define OS_LEAD  &kp RALT // OS specific sequence to initialize unicode
-          #define OS_TRAIL &kp ESC  // OS specific sequence to terminate unicode
+          #define OS_LEAD &kp RALT // OS specific sequence to initialize unicode
 
         macro_eacute: macro_eacute {
             wait-ms = <5>;
             tap-ms = <5>;
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <OS_LEAD &kp RALT &kp N0 &kp N0 &kp E &kp N9 OS_TRAIL>;
+            bindings = <&macro_press OS_LEAD &kp RALT &kp N0 &kp N0 &kp E &kp N9 &macro_release OS_LEAD>;
             label = "MACRO_EACUTE";
         };
     };
