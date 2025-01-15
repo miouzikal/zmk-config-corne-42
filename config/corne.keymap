@@ -59,7 +59,7 @@
         W2: W2 {
             compatible = "zmk,behavior-mod-morph";
             label = "W2";
-            bindings = <&none>, <&none>;
+            bindings = <&kp W>, <&kp KP_NUMBER_2>;
 
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
@@ -137,10 +137,46 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        LeftBracketDollar: LeftBracketDollar {
+        lbd: LeftBracketDollar {
             compatible = "zmk,behavior-mod-morph";
-            label = "]$";
+            label = "LeftBracketDollar";
             bindings = <&kp LEFT_BRACKET>, <&kp DOLLAR>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        lh: left_home {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LEFT_HOME";
+            bindings = <&kp LEFT_ARROW>, <&kp HOME>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        re: right_end {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RIGHT_END";
+            bindings = <&kp RIGHT>, <&kp END>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        upu: up_pageup {
+            compatible = "zmk,behavior-mod-morph";
+            label = "UP_PAGEUP";
+            bindings = <&kp UP_ARROW>, <&kp PAGE_UP>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        dpd: down_pagedown {
+            compatible = "zmk,behavior-mod-morph";
+            label = "DOWN_PAGEDOWN";
+            bindings = <&kp DOWN>, <&kp PAGE_DOWN>;
 
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
@@ -161,32 +197,32 @@
 
         Base {
             bindings = <
-&kp TAB          &Q1                   &W2                 &E3               &R4               &T5            &Y6          &U7                &I8                &O9                  &P0                       &LeftBracketDollar
+&kp TAB          &Q1                   &W2                 &E3               &R4               &T5            &Y6          &U7                &I8                &O9                  &P0                       &lbd
 &kp NON_US_BSLH  &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D  &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K  &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &kp BACKSLASH
 &caps_word       &kp Z                 &kp X               &kp C             &kp V             &kp B          &kp N        &kp M              &kp COMMA          &kp DOT              &kp SLASH                 &kp SINGLE_QUOTE
-                                                           &trans            &lt 2 ESCAPE      &lt 1 SPACE    &lt 1 ENTER  &lt 2 BACKSPACE    &trans
+                                                           &trans            &lt 2 ESCAPE      &lt 1 ENTER    &lt 1 SPACE  &lt 2 BACKSPACE    &trans
             >;
 
             label = "base";
         };
 
-        Symbols {
+        Symbol {
             bindings = <
-&trans  &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp RS(NUMBER_6)       &kp AMPERSAND   &kp ASTERISK   &macro_caret  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&trans  &trans           &trans       &trans    &trans      &trans         &kp RA(RIGHT_BRACKET)  &kp KP_MINUS    &kp KP_EQUAL   &kp KP_PLUS   &kp RA(N9)            &kp RA(N0)
-&trans  &trans           &trans       &trans    &trans      &trans         &trans                 &kp UNDERSCORE  &kp RA(COMMA)  &kp RA(DOT)   &kp RA(N7)            &kp RA(N8)
-                                      &trans    &trans      &trans         &trans                 &trans          &trans
+&trans     &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp RS(NUMBER_6)       &kp AMPERSAND   &kp ASTERISK   &macro_caret  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+&trans     &trans           &trans       &trans    &trans      &trans         &kp RA(RIGHT_BRACKET)  &kp KP_MINUS    &kp KP_EQUAL   &kp KP_PLUS   &kp RA(N9)            &kp RA(N0)
+&kp GLOBE  &trans           &trans       &trans    &trans      &trans         &trans                 &kp UNDERSCORE  &kp RA(COMMA)  &kp RA(DOT)   &kp RA(N7)            &kp RA(N8)
+                                         &trans    &trans      &trans         &trans                 &trans          &trans
             >;
 
-            label = "symbols";
+            label = "symbol";
         };
 
         Control {
             bindings = <
-&kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7    &kp F8          &kp F9        &kp F10    &kp F11  &kp F12
-&trans  &trans  &trans  &trans  &trans  &trans    &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans   &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans          &trans        &trans     &trans   &trans
-                        &trans  &trans  &trans    &trans    &trans          &trans
+&kp F1     &kp F2  &kp F3  &kp F4  &kp F5  &kp F6    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
+&trans     &trans  &trans  &trans  &trans  &trans    &lh     &dpd    &upu    &re      &trans   &trans
+&kp GLOBE  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &trans   &trans
+                           &trans  &trans  &trans    &trans  &trans  &trans
             >;
 
             label = "control";
