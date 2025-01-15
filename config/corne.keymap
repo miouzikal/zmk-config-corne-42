@@ -137,10 +137,10 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        LEFT_BRACKET: LEFT_BRACKET {
+        LeftBracketDollar: LeftBracketDollar {
             compatible = "zmk,behavior-mod-morph";
             label = "]$";
-            bindings = <&kp LEFT_BRACKET>, <&kp KP_DOLLAR>;
+            bindings = <&kp LEFT_BRACKET>, <&kp DOLLAR>;
 
             #binding-cells = <0>;
             mods = <(MOD_LALT|MOD_RALT)>;
@@ -161,7 +161,7 @@
 
         Base {
             bindings = <
-&kp TAB          &Q1                   &W2                 &E3               &R4               &T5            &Y6          &U7                &I8                &O9                  &P0                       &LEFT_BRACKET
+&kp TAB          &Q1                   &W2                 &E3               &R4               &T5            &Y6          &U7                &I8                &O9                  &P0                       &LeftBracketDollar
 &kp NON_US_BSLH  &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D  &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K  &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &kp BACKSLASH
 &caps_word       &kp Z                 &kp X               &kp C             &kp V             &kp B          &kp N        &kp M              &kp COMMA          &kp DOT              &kp SLASH                 &kp SINGLE_QUOTE
                                                            &trans            &lt 2 ESCAPE      &lt 1 SPACE    &lt 1 ENTER  &lt 2 BACKSPACE    &trans
