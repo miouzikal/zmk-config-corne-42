@@ -183,13 +183,22 @@
             mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        hyper: hyper_key {
+        left_hyper: left_hyper {
             compatible = "zmk,behavior-mod-morph";
-            label = "HYPER_KEY";
-            #binding-cells = <0>;
-
+            label = "LEFT_HYPER";
             bindings = <&none>, <&none>;
-            mods = <(MOD_LGUI|MOD_LALT|MOD_LCTRL|MOD_LSHIFT)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LCTL|MOD_LSFT|MOD_LALT|MOD_LGUI)>;
+        };
+
+        right_hyper: right_hyper {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RIGHT_HYPER";
+            bindings = <&none>, <&none>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_RCTL|MOD_RSFT|MOD_RALT|MOD_RGUI)>;
         };
     };
 
@@ -210,7 +219,7 @@
 &kp TAB          &Q1                   &W2                 &E3               &R4               &T5            &Y6          &U7                &I8                &O9                  &P0                       &lbd
 &kp NON_US_BSLH  &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D  &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K  &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &kp BACKSLASH
 &caps_word       &kp Z                 &kp X               &kp C             &kp V             &kp B          &kp N        &kp M              &kp COMMA          &kp DOT              &kp SLASH                 &kp SINGLE_QUOTE
-                                                           &hyper            &lt 2 ESCAPE      &lt 1 ENTER    &lt 1 SPACE  &lt 2 BACKSPACE    &hyper
+                                                           &left_hyper       &lt 2 ESCAPE      &lt 1 ENTER    &lt 1 SPACE  &lt 2 BACKSPACE    &right_hyper
             >;
 
             label = "base";
