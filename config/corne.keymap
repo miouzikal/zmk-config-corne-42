@@ -188,11 +188,7 @@
             label = "HYPER_KEY";
             #binding-cells = <0>;
 
-            /* On “normal” press, do nothing (i.e. &none).
-            On “modified” press, press SHIFT+CTRL+ALT+GUI all at once. */
-
             bindings = <&none>, <&none>;
-
             mods = <(MOD_LGUI|MOD_LALT|MOD_LCTRL|MOD_LSHIFT)>;
         };
     };
