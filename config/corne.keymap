@@ -78,7 +78,12 @@
         macro_caret: caret_macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_BRACKET &kp SPACE>;
+            bindings =
+                <&macro_press>,
+                <&macro_tap>,
+                <&kp U &kp N0 &kp N0 &kp N5 &kp E>,
+                <&macro_release>;
+
             label = "CARET_MACRO";
         };
     };
@@ -99,7 +104,7 @@
 
         Symbols {
             bindings = <
-&kp PIPE              &kp EXCLAMATION                 &kp AT_SIGN                   &kp POUND                   &kp CARET                       &kp PERCENT        &kp QUESTION     &kp AMPERSAND                    &kp ASTERISK                 &kp TILDE                      &kp LEFT_PARENTHESIS             &kp RIGHT_PARENTHESIS
+&kp PIPE              &kp EXCLAMATION                 &kp AT_SIGN                   &kp POUND                   &macro_caret                    &kp PERCENT        &kp QUESTION     &kp AMPERSAND                    &kp ASTERISK                 &kp TILDE                      &kp LEFT_PARENTHESIS             &kp RIGHT_PARENTHESIS
 &kp SLASH             &lhmt LEFT_CONTROL KP_NUMBER_1  &lhmt LEFT_SHIFT KP_NUMBER_2  &lhmt LEFT_ALT KP_NUMBER_3  &lhmt LEFT_COMMAND KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6  &rhmt RIGHT_COMMAND KP_NUMBER_7  &rhmt RIGHT_ALT KP_NUMBER_8  &rhmt RIGHT_SHIFT KP_NUMBER_9  &rhmt RIGHT_CONTROL KP_NUMBER_0  &kp DOLLAR
 &kp NON_US_BACKSLASH  &kp GRAVE                       &kp EQUAL                     &kp PLUS                    &kp MINUS                       &kp UNDERSCORE     &kp LEFT_BRACE   &kp RIGHT_BRACE                  &kp LESS_THAN                &kp GREATER_THAN               &kp LEFT_BRACKET                 &kp RIGHT_BRACKET
                                                                                     &trans                      &trans                          &trans             &trans           &trans                           &trans
