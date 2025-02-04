@@ -37,114 +37,6 @@
             hold-trigger-on-release;
         };
 
-        numbers: numbers {
-            compatible = "zmk,behavior-mod-morph";
-            label = "NUMBERS";
-            bindings = <&none>, <&none>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        Q1: Q1 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "Q1";
-            bindings = <&kp Q>, <&kp KP_NUMBER_1>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        W2: W2 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "W2";
-            bindings = <&kp W>, <&kp KP_NUMBER_2>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        E3: E3 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "E3";
-            bindings = <&kp E>, <&kp KP_NUMBER_3>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        R4: R4 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "R4";
-            bindings = <&kp R>, <&kp KP_NUMBER_4>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        T5: T5 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "T5";
-            bindings = <&kp T>, <&kp KP_NUMBER_5>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        Y6: Y6 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "Y6";
-            bindings = <&kp Y>, <&kp KP_NUMBER_6>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        U7: U7 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "U7";
-            bindings = <&kp U>, <&kp KP_NUMBER_7>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        I8: I8 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "I8";
-            bindings = <&kp I>, <&kp KP_NUMBER_8>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        O9: O9 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "O9";
-            bindings = <&kp O>, <&kp KP_NUMBER_9>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        P0: P0 {
-            compatible = "zmk,behavior-mod-morph";
-            label = "P0";
-            bindings = <&kp P>, <&kp KP_NUMBER_0>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
-        lbd: LeftBracketDollar {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LeftBracketDollar";
-            bindings = <&kp LEFT_BRACKET>, <&kp DOLLAR>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT|MOD_RALT)>;
-        };
-
         lh: left_home {
             compatible = "zmk,behavior-mod-morph";
             label = "LEFT_HOME";
@@ -237,32 +129,12 @@
         Control {
             bindings = <
 &kp F1     &kp F2      &kp F3      &kp F4      &kp F5  &kp F6    &kp F7  &kp F8  &kp F9  &kp F10  &kp F11  &kp F12
-&trans     &trans      &trans      &trans      &trans  &trans    &lh     &dpd    &upu    &re      &trans   &trans
-&kp GLOBE  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &trans  &trans    &trans  &trans  &trans  &trans   &trans   &trans
-                                   &trans      &trans  &trans    &trans  &trans  &trans
+&none      &none       &none       &none       &none   &none     &lh     &dpd    &upu    &re      &none    &none
+&kp GLOBE  &bt BT_CLR  &bt BT_PRV  &bt BT_NXT  &none   &none     &none   &none   &none   &none    &none    &none
+                                   &none       &trans  &none     &none   &trans  &none
             >;
 
             label = "control";
-        };
-
-        Symbol {
-            bindings = <
-&trans   &kp EXCLAMATION  &kp AT_SIGN  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp RS(NUMBER_6)       &kp AMPERSAND   &kp ASTERISK   &macro_caret  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&trans   &trans           &trans       &trans    &trans      &trans         &kp RA(RIGHT_BRACKET)  &kp KP_MINUS    &kp KP_EQUAL   &kp KP_PLUS   &kp RA(N9)            &kp RA(N0)
-&kp F13  &trans           &trans       &trans    &trans      &trans         &trans                 &kp UNDERSCORE  &kp RA(COMMA)  &kp RA(DOT)   &kp RA(N7)            &kp RA(N8)
-                                       &trans    &trans      &trans         &trans                 &trans          &trans
-            >;
-
-            label = "symbol";
-        };
-
-        layer_3 {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans  &trans
-            >;
         };
     };
 
