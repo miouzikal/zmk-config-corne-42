@@ -96,9 +96,36 @@
     combos {
         compatible = "zmk,combos";
 
-        reset_bluetooth {
+        combo_reset_bluetooth {
             bindings = <&bt BT_CLR>;
             key-positions = <0 38 39 11>;
+            layers = <0>;
+            timeout-ms = <15>;
+            require-prior-idle-ms = <280>;
+        };
+
+        combo_cut {
+            bindings = <&kp LG(X)>;
+            key-positions = <26 27>;
+            layers = <0>;
+            timeout-ms = <15>;
+            require-prior-idle-ms = <280>;
+        };
+
+        combo_copy {
+            bindings = <&kp LG(C)>;
+            key-positions = <27 28>;
+            layers = <0>;
+            timeout-ms = <15>;
+            require-prior-idle-ms = <280>;
+        };
+
+        combo_paste {
+            bindings = <&kp LG(V)>;
+            key-positions = <28 29>;
+            layers = <0>;
+            timeout-ms = <15>;
+            require-prior-idle-ms = <280>;
         };
     };
 
