@@ -69,9 +69,9 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LEFT_ALT &kp RIGHT_BRACKET>,
+                <&kp LEFT_SHIFT &kp LEFT_BRACKET>,
                 <&macro_release>,
-                <&kp LEFT_CONTROL &kp RIGHT_BRACKET>,
+                <&kp LEFT_SHIFT &kp LEFT_BRACKET>,
                 <&macro_tap>,
                 <&kp E>;
 
@@ -90,6 +90,13 @@
             #binding-cells = <0>;
             bindings = <&kp RIGHT_BRACKET &kp I>;
             label = "MACRO_I_CIRCONFLEX";
+        };
+
+        macro_o_circonflex: macro_o_circonflex {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_BRACKET &kp O>;
+            label = "MACRO_O_CIRCONFLEX";
         };
     };
 
@@ -169,7 +176,7 @@
             bindings = <
 &none  &none             &none           &none         &none             &none    &none           &none              &none             &macro_i_circonflex  &none  &none
 &none  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LEFT_ALT  &kp LEFT_COMMAND  &none    &macro_e_trema  &kp SLASH          &kp SINGLE_QUOTE  &macro_e_circonflex  &none  &none
-&none  &none             &none           &none         &none             &none    &none           &kp RIGHT_BRACKET  &kp BACKSLASH     &none                &none  &none
+&none  &none             &none           &none         &none             &none    &none           &kp RIGHT_BRACKET  &kp BACKSLASH     &macro_o_circonflex  &none  &none
                                          &none         &none             &none    &none           &none              &none
             >;
 
