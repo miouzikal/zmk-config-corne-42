@@ -81,21 +81,36 @@
         macro_e_circonflex: macro_e_circonflex {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_BRACKET &kp E>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_BRACKET &kp E>,
+                <&macro_release>,
+                <&kp E &kp LEFT_BRACKET>;
+
             label = "MACRO_E_CIRCONFLEX";
         };
 
         macro_i_circonflex: macro_i_circonflex {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_BRACKET &kp I>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_BRACKET &kp I>,
+                <&macro_release>,
+                <&kp I &kp LEFT_BRACKET>;
+
             label = "MACRO_I_CIRCONFLEX";
         };
 
         macro_o_circonflex: macro_o_circonflex {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp RIGHT_BRACKET &kp O>;
+            bindings =
+                <&macro_press>,
+                <&kp LEFT_BRACKET &kp O>,
+                <&macro_press>,
+                <&kp O &kp LEFT_BRACKET>;
+
             label = "MACRO_O_CIRCONFLEX";
         };
     };
