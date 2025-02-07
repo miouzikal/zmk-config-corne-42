@@ -170,7 +170,7 @@
         };
 
         combo_next_bluetooth {
-            bindings = <&bt BT_CLR>;
+            bindings = <&bt BT_NXT>;
             key-positions = <39 11>;
             timeout-ms = <50>;
             require-prior-idle-ms = <280>;
@@ -178,7 +178,7 @@
         };
 
         combo_previous_bluetooth {
-            bindings = <&bt BT_CLR>;
+            bindings = <&bt BT_PRV>;
             key-positions = <0 38>;
             timeout-ms = <50>;
             require-prior-idle-ms = <280>;
