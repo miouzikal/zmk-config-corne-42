@@ -62,9 +62,9 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LEFT_BRACKET &kp SPACE>,
+                <&kp CARET &kp SPACE>,
                 <&macro_release>,
-                <&kp SPACE &kp LEFT_BRACKET>;
+                <&kp SPACE &kp CARET>;
 
             label = "CARET_MACRO";
         };
@@ -74,13 +74,23 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp RIGHT_ALT &kp LEFT_BRACKET>,
+                <&kp GRAVE &kp SPACE>,
                 <&macro_release>,
-                <&kp RIGHT_ALT &kp LEFT_BRACKET>,
-                <&macro_tap>,
-                <&kp SPACE>;
+                <&kp SPACE &kp GRAVE>;
 
             label = "MACRO_GRAVE";
+        };
+
+        macro_tilde: macro_tilde {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp TILDE &kp SPACE>,
+                <&macro_release>,
+                <&kp SPACE &kp TILDE>;
+
+            label = "MACRO_TILDE";
         };
     };
 
@@ -152,10 +162,10 @@
 
         Accents {
             bindings = <
-&trans  &trans                     &trans            &trans                &trans            &trans                  &trans                &trans            &trans                &trans            &trans                     &trans
-&trans  &kp LS(LA(RIGHT_BRACKET))  &kp LEFT_BRACKET  &kp LA(LEFT_BRACKET)  &kp LS(LA(SEMI))  &kp LS(LEFT_BRACKET)    &kp RS(LEFT_BRACKET)  &kp RS(RA(SEMI))  &kp RA(LEFT_BRACKET)  &kp LEFT_BRACKET  &kp RS(RA(RIGHT_BRACKET))  &trans
-&trans  &trans                     &trans            &trans                &trans            &trans                  &trans                &trans            &trans                &trans            &trans                     &trans
-                                                     &trans                &trans            &trans                  &trans                &trans            &trans
+&trans  &trans     &trans     &trans     &trans            &trans               &trans             &trans            &trans     &trans     &trans     &trans
+&trans  &kp TILDE  &kp CARET  &kp GRAVE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES    &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp GRAVE  &kp CARET  &kp TILDE  &trans
+&trans  &trans     &trans     &trans     &trans            &trans               &trans             &trans            &trans     &trans     &trans     &trans
+                              &trans     &trans            &trans               &trans             &trans            &trans
             >;
 
             label = "accents";
@@ -163,10 +173,10 @@
 
         Symbols {
             bindings = <
-&kp RA(NON_US_BACKSLASH)  &kp EXCLAMATION                 &kp AT_SIGN                   &kp POUND                   &macro_caret                    &kp PERCENT        &kp RS(NUMBER_6)  &kp AMPERSAND                    &kp ASTERISK                 &kp RA(RBKT)                   &kp LEFT_PARENTHESIS             &kp RIGHT_PARENTHESIS
-&kp NON_US_BACKSLASH      &lhmt LEFT_CONTROL KP_NUMBER_1  &lhmt LEFT_SHIFT KP_NUMBER_2  &lhmt LEFT_ALT KP_NUMBER_3  &lhmt LEFT_COMMAND KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6   &rhmt RIGHT_COMMAND KP_NUMBER_7  &rhmt RIGHT_ALT KP_NUMBER_8  &rhmt RIGHT_SHIFT KP_NUMBER_9  &rhmt RIGHT_CONTROL KP_NUMBER_0  &kp DOLLAR
-&kp RS(NON_US_BACKSLASH)  &macro_grave                    &kp EQUAL                     &kp UNDERSCORE              &kp MINUS                       &kp PLUS           &kp RA(N7)        &kp RA(N8)                       &kp RA(COMMA)                &kp RA(PERIOD)                 &kp RA(N9)                       &kp RA(N0)
-                                                                                        &trans                      &trans                          &trans             &trans            &trans                           &trans
+&kp PIPE       &kp EXCLAMATION                 &kp AT_SIGN                   &kp POUND                   &macro_caret                    &kp PERCENT        &kp QUESTION     &kp AMPERSAND                    &kp ASTERISK                 &macro_tilde                   &kp LESS_THAN                    &kp GREATER_THAN
+&kp SLASH      &lhmt LEFT_CONTROL KP_NUMBER_1  &lhmt LEFT_SHIFT KP_NUMBER_2  &lhmt LEFT_ALT KP_NUMBER_3  &lhmt LEFT_COMMAND KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6  &rhmt RIGHT_COMMAND KP_NUMBER_7  &rhmt RIGHT_ALT KP_NUMBER_8  &rhmt RIGHT_SHIFT KP_NUMBER_9  &rhmt RIGHT_CONTROL KP_NUMBER_0  &kp DOLLAR
+&kp BACKSLASH  &macro_grave                    &kp EQUAL                     &kp UNDERSCORE              &kp MINUS                       &kp PLUS           &kp LEFT_BRACE   &kp RIGHT_BRACE                  &kp LEFT_PARENTHESIS         &kp RIGHT_PARENTHESIS          &kp LEFT_BRACKET                 &kp RIGHT_BRACKET
+                                                                             &trans                      &trans                          &trans             &trans           &trans                           &trans
             >;
 
             label = "symbols";
