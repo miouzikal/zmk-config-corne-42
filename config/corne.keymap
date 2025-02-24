@@ -128,9 +128,9 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp DOUBLE_QUOTES &kp SPACE>,
+                <&kp LS(SINGLE_QUOTE) &kp SPACE>,
                 <&macro_release>,
-                <&kp SPACE &kp DOUBLE_QUOTES>;
+                <&kp SPACE &kp LS(SINGLE_QUOTE)>;
 
             label = "MACRO_DOUBLE_QUOTE";
         };
