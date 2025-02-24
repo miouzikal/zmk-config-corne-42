@@ -67,7 +67,7 @@
         pdq: period_double_quote {
             compatible = "zmk,behavior-mod-morph";
             label = "PERIOD_DOUBLE_QUOTE";
-            bindings = <&kp COMMA>, <&macro_double_quote>;
+            bindings = <&kp PERIOD>, <&macro_double_quote>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
