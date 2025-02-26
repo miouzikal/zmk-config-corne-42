@@ -199,7 +199,7 @@
             bindings = <
 &caps_word  &kp Q                 &kp W               &kp E                          &kp R             &kp T          &kp Y        &kp U              &kp I                           &kp O                &kp P                     &kp RG(GRAVE)
 &kp TAB     &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D               &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K               &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &kp LA(LC(LG(SLASH)))
-&kp F13     &kp RA(N8)            &kp Z               &kp X                          &kp C             &kp V          &kp B        &kp N              &kp M                           &csq                 &pdq                      &kp RA(C)
+&kp F13     &key_repeat           &kp Z               &kp X                          &kp C             &kp V          &kp B        &kp N              &kp M                           &csq                 &pdq                      &kp RA(C)
                                                       &asl LG(LC(LA(LEFT_SHIFT))) 1  &lt 3 ESCAPE      &lt 2 ENTER    &lt 2 SPACE  &lt 3 BACKSPACE    &asl RG(RC(RA(RIGHT_SHIFT))) 1
             >;
 
