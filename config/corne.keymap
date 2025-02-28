@@ -78,6 +78,8 @@
             label = "SMART_BACKSPACE";
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp RA(BACKSPACE)>, <&kp BACKSPACE>;
+
+            tapping-term-ms = <150>;
         };
 
         sesc: smart_escape {
@@ -85,6 +87,8 @@
             label = "SMART_ESCAPE";
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp LG(Z)>;
+
+            tapping-term-ms = <150>;
         };
 
         mobs: momentary_layer_backspace {
@@ -108,7 +112,6 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
         };
-
     };
 
     macros {
@@ -237,7 +240,7 @@
 &caps_word  &kp Q                 &kp W               &kp E                          &kp R             &kp T          &kp Y        &kp U              &kp I                           &kp O                &kp P                     &kp RG(GRAVE)
 &kp TAB     &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D               &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K               &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &kp LA(LC(LG(SLASH)))
 &kp F13     &kp Z                 &kp X               &kp C                          &kp V             &kp B          &kp N        &kp M              &csq                            &pdq                 &key_repeat               &kp RA(C)
-                                                      &asl LG(LC(LA(LEFT_SHIFT))) 1  &lt 3 ESCAPE      &lt 2 ENTER    &lt 2 SPACE  &mobs 3 0          &asl RG(RC(RA(RIGHT_SHIFT))) 1
+                                                      &asl LG(LC(LA(LEFT_SHIFT))) 1  &moesc 3 0        &lt 2 ENTER    &lt 2 SPACE  &mobs 3 0          &asl RG(RC(RA(RIGHT_SHIFT))) 1
             >;
 
             label = "base";
