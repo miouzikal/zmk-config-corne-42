@@ -80,6 +80,13 @@
             bindings = <&kp BACKSPACE>, <&kp RA(BACKSPACE)>, <&kp BACKSPACE>;
         };
 
+        sesc: smart_escape {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SMART_ESCAPE";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp LG(Z)>;
+        };
+
         mobs: momentary_layer_backspace {
             compatible = "zmk,behavior-hold-tap";
             label = "MOMENTARY_LAYER_BACKSPACE";
@@ -90,6 +97,18 @@
             quick-tap-ms = <175>;
             flavor = "balanced";
         };
+
+        moesc: momentary_layer_escape {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOMENTARY_LAYER_ESCAPE";
+            bindings = <&mo>, <&sesc>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+        };
+
     };
 
     macros {
