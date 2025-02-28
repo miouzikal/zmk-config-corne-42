@@ -79,7 +79,7 @@
             #binding-cells = <0>;
             bindings = <&kp BACKSPACE>, <&kp RA(BACKSPACE)>, <&kp BACKSPACE>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <175>;
         };
 
         sesc: smart_escape {
@@ -88,7 +88,7 @@
             #binding-cells = <0>;
             bindings = <&kp ESC>, <&kp LG(Z)>;
 
-            tapping-term-ms = <150>;
+            tapping-term-ms = <175>;
         };
 
         mobs: momentary_layer_backspace {
