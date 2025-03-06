@@ -73,11 +73,29 @@
             mods = <(MOD_LSFT)>;
         };
 
+        bsdel: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BACKSPACE_DELETE";
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mbsdel: mod_backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MOD_BACKSPACE_DELETE";
+            bindings = <&kp LA(BACKSPACE)>, <&kp LA(DELETE)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+        };
+
         sbs: smart_backspace {
             compatible = "zmk,behavior-tap-dance";
             label = "SMART_BACKSPACE";
             #binding-cells = <0>;
-            bindings = <&kp BACKSPACE>, <&kp RA(BACKSPACE)>;
+            bindings = <&bsdel>, <&mbsdel>;
 
             tapping-term-ms = <150>;
         };
@@ -194,7 +212,7 @@
             key-positions = <26 27>;
             layers = <0>;
             timeout-ms = <50>;
-            require-prior-idle-ms = <280>;
+            require-prior-idle-ms = <75>;
         };
 
         combo_copy {
@@ -202,15 +220,15 @@
             key-positions = <27 28>;
             layers = <0>;
             timeout-ms = <50>;
-            require-prior-idle-ms = <280>;
+            require-prior-idle-ms = <75>;
         };
 
         combo_paste {
             bindings = <&kp LG(V)>;
             key-positions = <28 29>;
             layers = <0>;
-            timeout-ms = <55>;
-            require-prior-idle-ms = <280>;
+            timeout-ms = <50>;
+            require-prior-idle-ms = <75>;
         };
 
         combo_next_bluetooth {
@@ -249,7 +267,7 @@
 &trans  &trans     &trans     &trans     &trans            &trans               &trans             &trans            &trans     &trans     &trans     &trans
 &trans  &kp TILDE  &kp CARET  &kp GRAVE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES    &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp GRAVE  &kp CARET  &kp TILDE  &trans
 &trans  &trans     &trans     &trans     &trans            &trans               &trans             &trans            &trans     &trans     &trans     &trans
-                              &trans     &trans            &trans               &trans             &trans            &trans
+                                                       &trans     &trans            &trans               &trans             &trans            &trans
             >;
 
             label = "accents";
