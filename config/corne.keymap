@@ -133,14 +133,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SMART_LEFT_CONTROL";
             #binding-cells = <0>;
-            bindings = <&asl LG(LC(LA(LEFT_SHIFT))) 2>, <&mo 1>;
+            bindings = <&asl LG(LC(LA(LEFT_SHIFT))) 1>, <&mo 2>;
         };
 
         srctrl: smart_right_control {
             compatible = "zmk,behavior-tap-dance";
             label = "SMART_RIGHT_CONTROL";
             #binding-cells = <0>;
-            bindings = <&asl RG(RC(RA(RIGHT_SHIFT))) 2>, <&mo 1>;
+            bindings = <&asl RG(RC(RA(RIGHT_SHIFT))) 1>, <&mo 2>;
 
             tapping-term-ms = <150>;
         };
