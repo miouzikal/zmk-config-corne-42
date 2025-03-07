@@ -128,6 +128,22 @@
             quick-tap-ms = <150>;
             flavor = "balanced";
         };
+
+        slctrl: smart_left_control {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SMART_LEFT_CONTROL";
+            #binding-cells = <0>;
+            bindings = <&asl LG(LC(LA(LEFT_SHIFT))) 2>, <&mo 1>;
+        };
+
+        srctrl: smart_right_control {
+            compatible = "zmk,behavior-tap-dance";
+            label = "SMART_RIGHT_CONTROL";
+            #binding-cells = <0>;
+            bindings = <&asl RG(RC(RA(RIGHT_SHIFT))) 2>, <&mo 1>;
+
+            tapping-term-ms = <150>;
+        };
     };
 
     macros {
@@ -253,38 +269,48 @@
 
         Base {
             bindings = <
-&caps_word  &kp Q                 &kp W               &kp E                          &kp R             &kp T          &kp Y        &kp U              &kp I                           &kp O                &kp P                     &kp RG(GRAVE)
-&kp TAB     &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D               &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K               &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &kp LA(LC(LG(SLASH)))
-&kp F13     &kp Z                 &kp X               &kp C                          &kp V             &kp B          &kp N        &kp M              &csq                            &pdq                 &key_repeat               &kp RA(C)
-                                                      &asl LG(LC(LA(LEFT_SHIFT))) 1  &moesc 3 0        &lt 2 ENTER    &lt 2 SPACE  &mobs 3 0          &asl RG(RC(RA(RIGHT_SHIFT))) 1
+&caps_word  &kp Q                 &kp W               &kp E             &kp R             &kp T          &kp Y        &kp U              &kp I              &kp O                &kp P                     &none
+&kp TAB     &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D  &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K  &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &none
+&none       &kp Z                 &kp X               &kp C             &kp V             &kp B          &kp N        &kp M              &csq               &pdq                 &none                     &none
+                                                      &slctrl           &moesc 4 0        &lt 3 ENTER    &lt 3 SPACE  &mobs 4 0          &srctrl
             >;
 
             label = "base";
         };
 
         Accents {
+            label = "accents";
             bindings = <
-&trans  &trans     &trans     &trans     &trans            &trans               &trans             &trans            &trans     &trans     &trans     &trans
-&trans  &kp TILDE  &kp CARET  &kp GRAVE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES    &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp GRAVE  &kp CARET  &kp TILDE  &trans
-&trans  &trans     &trans     &trans     &trans            &trans               &trans             &trans            &trans     &trans     &trans     &trans
-                                                       &trans     &trans            &trans               &trans             &trans            &trans
+&none  &none      &none      &none      &none             &none                &none              &none             &none      &none      &none      &none
+&none  &kp TILDE  &kp CARET  &kp GRAVE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES    &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp GRAVE  &kp CARET  &kp TILDE  &none
+&none  &none      &none      &none      &none             &none                &none              &none             &none      &none      &none      &none
+                             &trans     &trans            &trans               &trans             &trans            &trans
+            >;
+        };
+
+        Control {
+            bindings = <
+&none  &none  &none  &none   &none   &none     &kp C_REWIND  &kp C_PLAY_PAUSE  &kp C_FAST_FORWARD  &kp C_MUTE  &kp C_VOLUME_DOWN     &kp C_VOLUME_UP
+&none  &none  &none  &none   &none   &none     &none         &none             &none               &none       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC
+&none  &none  &none  &none   &none   &none     &none         &none             &none               &none       &none                 &none
+                     &trans  &trans  &trans    &trans        &trans            &trans
             >;
 
-            label = "accents";
+            label = "control";
         };
 
         Symbols {
             bindings = <
 &kp PIPE       &kp EXCLAMATION                 &kp AT_SIGN                   &kp POUND                   &macro_caret                    &kp PERCENT        &kp QUESTION     &kp AMPERSAND                    &kp ASTERISK                 &macro_tilde                   &kp LESS_THAN                    &kp GREATER_THAN
 &kp SLASH      &lhmt LEFT_CONTROL KP_NUMBER_1  &lhmt LEFT_SHIFT KP_NUMBER_2  &lhmt LEFT_ALT KP_NUMBER_3  &lhmt LEFT_COMMAND KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6  &rhmt RIGHT_COMMAND KP_NUMBER_7  &rhmt RIGHT_ALT KP_NUMBER_8  &rhmt RIGHT_SHIFT KP_NUMBER_9  &rhmt RIGHT_CONTROL KP_NUMBER_0  &kp DOLLAR
-&kp BACKSLASH  &macro_grave                    &kp EQUAL                     &kp UNDERSCORE              &kp MINUS                       &kp PLUS           &kp LEFT_BRACE   &kp RIGHT_BRACE                  &kp LEFT_PARENTHESIS         &kp RIGHT_PARENTHESIS          &kp LEFT_BRACKET                 &kp RIGHT_BRACKET
+&kp BACKSLASH  &macro_grave                    &kp EQUAL                     &kp UNDERSCORE              &kp MINUS                       &kp PLUS           &kp LEFT_BRACE   &kp LEFT_PARENTHESIS             &kp LEFT_BRACKET             &kp RIGHT_BRACKET              &kp RIGHT_PARENTHESIS            &kp RIGHT_BRACE
                                                                              &trans                      &trans                          &trans             &trans           &trans                           &trans
             >;
 
             label = "symbols";
         };
 
-        Control {
+        Code {
             bindings = <
 &kp F1   &kp F2            &kp F3          &kp F4        &kp F5            &kp F6    &kp F7          &kp F8         &kp F9        &kp F10    &kp F11  &kp F12
 &none    &kp LEFT_CONTROL  &kp LEFT_SHIFT  &kp LEFT_ALT  &kp LEFT_COMMAND  &none     &kp LEFT_ARROW  &kp DOWN       &kp UP_ARROW  &kp RIGHT  &none    &none
@@ -292,7 +318,7 @@
                                            &trans        &trans            &none     &none           &trans         &trans
             >;
 
-            label = "control";
+            label = "code";
         };
     };
 
