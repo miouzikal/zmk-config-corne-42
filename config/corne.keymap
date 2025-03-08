@@ -118,7 +118,7 @@
         htap: hold_tap_accent_control {
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_TAP_ACCENT_CONTROL";
-            bindings = <&mo>, <&tog>;
+            bindings = <&sl>, <&tog>;
 
             #binding-cells = <2>;
             tapping-term-ms = <280>;
