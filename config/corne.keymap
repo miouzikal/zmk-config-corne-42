@@ -41,20 +41,6 @@
             require-prior-idle-ms = <75>;
         };
 
-        asl: accents_sticky_layer {
-            compatible = "zmk,behavior-hold-tap";
-            label = "accents_sticky_layer";
-            bindings = <&kp>, <&sl>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <280>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <0 1 2 3 4 5 12 24 25 26 27 28 29 6 7 8 9 10 11 23 35 34 33 32 31 30>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <75>;
-            hold-trigger-on-release;
-        };
-
         csq: comma_single_quote {
             compatible = "zmk,behavior-mod-morph";
             label = "COMMA_SINGLE_QUOTE";
@@ -129,20 +115,17 @@
             flavor = "balanced";
         };
 
-        slctrl: smart_left_control {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SMART_LEFT_CONTROL";
-            #binding-cells = <0>;
-            bindings = <&asl LG(LC(LA(LEFT_SHIFT))) 1>, <&mo 2>;
-        };
+        htap: hold_tap_accent_control {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_ACCENT_CONTROL";
+            bindings = <&mo>, <&sl>;
 
-        srctrl: smart_right_control {
-            compatible = "zmk,behavior-tap-dance";
-            label = "SMART_RIGHT_CONTROL";
-            #binding-cells = <0>;
-            bindings = <&asl RG(RC(RA(RIGHT_SHIFT))) 1>, <&mo 2>;
-
-            tapping-term-ms = <150>;
+            #binding-cells = <2>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <5 4 3 2 1 0 12 24 25 26 27 28 29 7 6 8 9 10 11 23 35 34 33 32 31 30 41 40 39 38 37 36 18 17>;
+            require-prior-idle-ms = <75>;
         };
     };
 
@@ -272,7 +255,7 @@
 &caps_word  &kp Q                 &kp W               &kp E             &kp R             &kp T          &kp Y        &kp U              &kp I              &kp O                &kp P                     &none
 &kp TAB     &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D  &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K  &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &none
 &none       &kp Z                 &kp X               &kp C             &kp V             &kp B          &kp N        &kp M              &csq               &pdq                 &none                     &none
-                                                      &slctrl           &moesc 4 0        &lt 3 ENTER    &lt 3 SPACE  &mobs 4 0          &srctrl
+                                                      &htap 2 1         &moesc 4 0        &lt 3 ENTER    &lt 3 SPACE  &mobs 4 0          &htap 3 1
             >;
 
             label = "base";
@@ -290,10 +273,10 @@
 
         Control {
             bindings = <
-&none  &none  &none  &none   &none   &none     &kp C_REWIND  &kp C_PLAY_PAUSE  &kp C_FAST_FORWARD  &kp C_MUTE  &kp C_VOLUME_DOWN     &kp C_VOLUME_UP
-&none  &none  &none  &none   &none   &none     &none         &none             &none               &none       &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC
-&none  &none  &none  &none   &none   &none     &none         &none             &none               &none       &none                 &none
-                     &trans  &trans  &trans    &trans        &trans            &trans
+&kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none                   &none                 &none                     &none     &kp C_REWIND  &kp C_PLAY_PAUSE           &kp C_FAST_FORWARD         &kp C_MUTE               &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
+&none                 &kp LC(A)             &lhmt LEFT_SHIFT LC(S)  &lhmt LEFT_ALT LC(D)  &lhmt LEFT_COMMAND LC(F)  &none     &kp RC(H)     &rhmt RIGHT_COMMAND RC(J)  &rhmt RC(RIGHT_ALT) RC(K)  &rhmt RIGHT_SHIFT RC(L)  &none              &none
+&none                 &none                 &none                   &none                 &none                     &none     &none         &none                      &none                      &none                    &none              &none
+                                                                    &trans                &trans                    &trans    &trans        &trans                     &trans
             >;
 
             label = "control";
