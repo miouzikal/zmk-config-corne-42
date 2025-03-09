@@ -273,10 +273,10 @@
 
         Control {
             bindings = <
-&kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none                   &none                 &kp LC(R)                 &none     &kp C_REWIND  &kp C_PLAY_PAUSE           &kp C_FAST_FORWARD         &kp C_MUTE               &kp C_VOLUME_DOWN  &kp C_VOLUME_UP
-&none                 &kp LC(A)             &lhmt LEFT_SHIFT LC(S)  &lhmt LEFT_ALT LC(D)  &lhmt LEFT_COMMAND LC(F)  &none     &kp RC(H)     &rhmt RIGHT_COMMAND RC(J)  &rhmt RC(RIGHT_ALT) RC(K)  &rhmt RIGHT_SHIFT RC(L)  &kp RC(SEMICOLON)  &none
-&none                 &none                 &none                   &kp LC(C)             &none                     &none     &kp RC(N)     &kp RC(M)                  &kp RC(COMMA)              &kp RC(PERIOD)           &none              &none
-                                                                    &trans                &trans                    &trans    &trans        &trans                     &trans
+&kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &none                       &none                     &kp LA(LG(R))                 &none     &kp C_REWIND   &kp C_PLAY_PAUSE               &kp C_FAST_FORWARD         &kp C_MUTE                   &kp C_VOLUME_DOWN      &kp C_VOLUME_UP
+&none                 &kp LA(LG(A))         &lhmt LEFT_SHIFT LA(LG(S))  &lhmt LEFT_ALT LA(LG(D))  &lhmt LEFT_COMMAND LA(LG(F))  &none     &kp RA(RG(H))  &rhmt RIGHT_COMMAND RA(RG(J))  &rhmt RIGHT_ALT RA(RG(K))  &rhmt RIGHT_SHIFT RA(RG(L))  &kp RA(RG(SEMICOLON))  &none
+&none                 &none                 &none                       &kp LA(LG(C))             &none                         &none     &kp RA(RG(N))  &kp RA(RG(M))                  &kp RA(RG(COMMA))          &kp RA(RG(PERIOD))           &none                  &none
+                                                                        &trans                    &trans                        &trans    &trans         &trans                         &trans
             >;
 
             label = "control";
