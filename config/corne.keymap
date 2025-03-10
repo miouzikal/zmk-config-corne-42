@@ -254,7 +254,7 @@
 &caps_word  &kp Q                 &kp W               &kp E             &kp R             &kp T          &kp Y        &kp U              &kp I              &kp O                &kp P                     &none
 &kp TAB     &lhmt LEFT_CONTROL A  &lhmt LEFT_SHIFT S  &lhmt LEFT_ALT D  &lhmt LEFT_GUI F  &kp G          &kp H        &rhmt RIGHT_GUI J  &rhmt RIGHT_ALT K  &rhmt RIGHT_SHIFT L  &rhmt RIGHT_CONTROL SEMI  &none
 &none       &kp Z                 &kp X               &kp C             &kp V             &kp B          &kp N        &kp M              &csq               &pdq                 &none                     &none
-                                                      &htap 2 4         &moesc 3 0        &lt 1 ENTER    &lt 1 SPACE  &mobs 3 0          &htap 1 4
+                                                      &htap 2 4         &moesc 3 0        &lt 1 ENTER    &lt 1 SPACE  &mobs 3 0          &htap 2 4
             >;
 
             label = "base";
