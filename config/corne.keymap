@@ -200,7 +200,7 @@
                 <&macro_press>,
                 <&kp F6 &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_release>,
-                <&kp F6>;
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp F6>;
 
             label = "MACRO_AEROSPACE";
         };
