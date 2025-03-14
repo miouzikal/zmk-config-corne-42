@@ -144,6 +144,16 @@
             mods = <(MOD_LSFT)>;
             keep-mods = <(MOD_LSFT)>;
         };
+
+        slashes: slashes {
+            compatible = "zmk,behavior-mod-morph";
+            label = "SLASHES";
+            bindings = <&kp SLASH>, <&kp BACKSLASH>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LSFT)>;
+            keep-mods = <(MOD_LSFT)>;
+        };
     };
 
     macros {
@@ -210,13 +220,6 @@
             key-positions = <22 23>;
             layers = <2>;
         };
-
-        combo_equal {
-            bindings = <&kp EQUAL>;
-            key-positions = <27 28>;
-            layers = <1>;
-            timeout-ms = <50>;
-        };
     };
 
     keymap {
@@ -235,10 +238,10 @@
 
         Symbols {
             bindings = <
-&none    &kp EXCLAMATION                 &kp AT_SIGN                   &kp POUND                   &kp DOLLAR                      &kp PERCENT        &kp QUESTION     &kp AMPERSAND                    &kp ASTERISK                 &undead TILDE                  &undead CARET                    &none
-&kp TAB  &lhmt LEFT_CONTROL KP_NUMBER_1  &lhmt LEFT_SHIFT KP_NUMBER_2  &lhmt LEFT_ALT KP_NUMBER_3  &lhmt LEFT_COMMAND KP_NUMBER_4  &kp KP_NUMBER_5    &kp KP_NUMBER_6  &rhmt RIGHT_COMMAND KP_NUMBER_7  &rhmt RIGHT_ALT KP_NUMBER_8  &rhmt RIGHT_SHIFT KP_NUMBER_9  &rhmt RIGHT_CONTROL KP_NUMBER_0  &none
-&none    &kp SLASH                       &kp NON_US_BACKSLASH          &kp UNDERSCORE              &kp MINUS                       &kp PLUS           &curly_braces    &parenthesis                     &square_brackets             &kp PIPE                       &undead GRAVE                    &none
-                                                                       &trans                      &trans                          &trans             &trans           &trans                           &trans
+&none    &kp EXCLAMATION              &kp AT_SIGN                &kp POUND                &kp DOLLAR                   &kp PERCENT     &kp QUESTION   &kp AMPERSAND                 &kp ASTERISK              &undead TILDE               &undead CARET                 &none
+&kp TAB  &lhmt LEFT_CONTROL NUMBER_1  &lhmt LEFT_SHIFT NUMBER_2  &lhmt LEFT_ALT NUMBER_3  &lhmt LEFT_COMMAND NUMBER_4  &kp NUMBER_5    &kp NUMBER_6   &rhmt RIGHT_COMMAND NUMBER_7  &rhmt RIGHT_ALT NUMBER_8  &rhmt RIGHT_SHIFT NUMBER_9  &rhmt RIGHT_CONTROL NUMBER_0  &none
+&none    &undead GRAVE                &kp EQUAL                  &kp UNDERSCORE           &kp MINUS                    &kp PLUS        &curly_braces  &parenthesis                  &square_brackets          &slashes                    &kp PIPE                      &none
+                                                                 &trans                   &trans                       &trans          &trans         &trans                        &trans
             >;
 
             label = "symbols";
