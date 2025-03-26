@@ -276,10 +276,10 @@
         Accents {
             label = "accents";
             bindings = <
-&none  &none      &none      &none      &none             &none                &none              &none             &none      &none      &none      &none
-&none  &kp TILDE  &kp CARET  &kp GRAVE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES    &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp GRAVE  &kp CARET  &kp TILDE  &none
-&none  &none      &none      &none      &none             &none                &none              &none             &none      &none      &none      &none
-                             &trans     &trans            &trans               &trans             &trans            &trans
+&none  &none                     &none                     &none      &none             &none                &none              &none             &none      &none                     &none                     &none
+&none  &super_shifted RS(TILDE)  &super_shifted RS(CARET)  &kp GRAVE  &kp SINGLE_QUOTE  &kp DOUBLE_QUOTES    &kp DOUBLE_QUOTES  &kp SINGLE_QUOTE  &kp GRAVE  &super_shifted RS(CARET)  &super_shifted RS(TILDE)  &none
+&none  &none                     &none                     &none      &none             &none                &none              &none             &none      &none                     &none                     &none
+                                                           &trans     &trans            &trans               &trans             &trans            &trans
             >;
         };
     };
