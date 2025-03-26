@@ -172,7 +172,7 @@
                 <&macro_press>,
                 <&kp LS(RIGHT_SHIFT) &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
                 <&macro_release>,
-                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp LS(RIGHT_SHIFT)>;
+                <&kp LS(RIGHT_SHIFT) &macro_param_1to1 &kp MACRO_PLACEHOLDER>;
 
             label = "FIXED_MOD_MORPH";
         };
