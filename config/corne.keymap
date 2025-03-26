@@ -145,7 +145,7 @@
         slashes: slashes {
             compatible = "zmk,behavior-mod-morph";
             label = "SLASHES";
-            bindings = <&kp SLASH>, <&kp BACKSLASH>;
+            bindings = <&kp SLASH>, <&super_shifted BACKSLASH>;
 
             #binding-cells = <0>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -163,6 +163,18 @@
                 <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp SPACE>;
 
             label = "MACRO_UNDEAD_KEYS";
+        };
+
+        super_shifted: fixed_mod_morph {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings =
+                <&macro_press>,
+                <&kp LS(RIGHT_SHIFT) &macro_param_1to1 &kp MACRO_PLACEHOLDER>,
+                <&macro_release>,
+                <&macro_param_1to1 &kp MACRO_PLACEHOLDER &kp LS(RIGHT_SHIFT)>;
+
+            label = "FIXED_MOD_MORPH";
         };
     };
 
@@ -215,6 +227,13 @@
             bindings = <&kp C_MUTE>;
             key-positions = <22 23>;
             layers = <2>;
+        };
+
+        combo_undo {
+            bindings = <&kp LG(Z)>;
+            key-positions = <26 25>;
+            timeout-ms = <50>;
+            layers = <0>;
         };
     };
 
