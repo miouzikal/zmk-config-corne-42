@@ -1,0 +1,49 @@
+name: Cleanup Workflow Runs
+
+on:
+  workflow_dispatch:
+    inputs:
+      workflow_identifier:
+        description: 'Workflow name or filename (e.g., "CI Build" or "build.yml")'
+        required: true
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Find and delete old runs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get workflow ID
+          response=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows")
+
+          workflow_id=$(echo "$response" | jq -r --arg identifier "${{ inputs.workflow_identifier }}" '
+            .workflows[] |
+            select(.name == $identifier or (.path | endswith("/" + $identifier))) | .id')
+
+          if [ -z "$workflow_id" ]; then
+            echo "Workflow not found"
+            exit 1
+          fi
+
+          # Get runs for specific workflow
+          runs=$(curl -s -H "Authorization: token $GH_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/$workflow_id/runs?per_page=100&status=completed")
+
+          # Parse and delete old runs
+          run_ids=$(echo "$runs" | jq -r '.workflow_runs |
+            map(select(.conclusion == "success")) |
+            sort_by(.created_at) | reverse | .[1:] | .[].id')
+
+          if [ -n "$run_ids" ]; then
+            for id in $run_ids; do
+              echo "Deleting run $id"
+              curl -s -X DELETE -H "Authorization: token $GH_TOKEN" \
+                "https://api.github.com/repos/${{ github.repository }}/actions/runs/$id"
+            done
+            echo "Deleted runs: $run_ids"
+          else
+            echo "No old runs to delete"
+          fi
